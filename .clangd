@@ -1,0 +1,19 @@
+If:
+  PathMatch: .*\.(cu|cuh)$
+CompileFlags:
+  Compiler:
+    /usr/bin/clang++
+  Add:
+    - --cuda-path=/opt/cuda
+    - -Wno-unknown-cuda-version
+    - --cuda-gpu-arch=sm_75
+    - -xcuda
+  Remove:
+    - -forward-unknown-to-host-compiler
+    - --generate-code=*
+    - -arch=*
+    - -Xcompiler=*
+    - -rdc=*
+    - -Wno-deprecated-gpu-targets
+    - --expt-relaxed-constexpr
+    - -fdeps-format=*
